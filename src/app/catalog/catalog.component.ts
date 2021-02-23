@@ -9,9 +9,9 @@ import { ProductService } from '../product.service';
 })
 export class CatalogComponent implements OnInit {
 
-  public currentCategory:string = DEFAULT_CATEGORY;
+  public currentCategory:string = "";
   public products:Product[] = [];
-  public categories:string[] = CATEGORIES_MOCK;
+  public categories:string[] = [];
 
   private service:ProductService;
 
@@ -20,11 +20,32 @@ export class CatalogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.getAll().subscribe( 
+    this.service.getAll().subscribe(
+
       (products:Product[]) => {
         this.products = products;
+      }, 
+
+      (error) => {
+        alert("ERROR");
+        console.log(error);
       }
+
     );
+
+    this.service.getCategories().subscribe(
+      (categories:string[]) => {
+        this.categories = categories;
+      }
+    );  
+    
+    this.service.getDefaultCategory().subscribe(
+      (cat:string) => {
+        this.currentCategory = cat;
+      }
+    ); 
+
+
   }
 
 }
