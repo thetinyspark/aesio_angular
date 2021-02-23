@@ -1,26 +1,44 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { ProductTypePipe } from './product-type.pipe';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     CatalogComponent,
-    ProductTypePipe
+    ProductTypePipe,
+    HomeComponent,
+    DetailComponent
   ],
   imports: [
     HttpClientModule,
     FormsModule,
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule, 
+    RouterModule.forRoot( 
+      [
+        {
+          path: "home", 
+          component: HomeComponent
+        }, 
+        {
+          path: "catalog", 
+          component: CatalogComponent
+        }, 
+        {
+          path: "detail/:id", 
+          component: DetailComponent
+        }
+      ]
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

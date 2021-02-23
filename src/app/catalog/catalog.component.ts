@@ -20,31 +20,14 @@ export class CatalogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.getAll().subscribe(
 
-      (products:Product[]) => {
-        this.products = products;
-      }, 
-
-      (error) => {
-        alert("ERROR");
-        console.log(error);
+    this.service.getEverything().subscribe(
+      (data) => {
+        this.categories       = data.categories; 
+        this.currentCategory  = data.defaultCategory;
+        this.products         = data.products;
       }
-
     );
-
-    this.service.getCategories().subscribe(
-      (categories:string[]) => {
-        this.categories = categories;
-      }
-    );  
-    
-    this.service.getDefaultCategory().subscribe(
-      (cat:string) => {
-        this.currentCategory = cat;
-      }
-    ); 
-
 
   }
 

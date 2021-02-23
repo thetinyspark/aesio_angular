@@ -1,9 +1,19 @@
 
 
 # TP n°1
-Créer un fichier nommé **categories.json** listant les différentes catégories de produits. Créer une méthode getCategories sur le service ProductService et faire en sorte de retourner un Observable<string[]>. Ce tableau de chaînes de caractères doit contenir les données du fichier **categories.json**.
+Créer un service, nommé **CartService**. 
+Ce service doit permettre d'ajouter des produits à un panier virtuel. 
+Ce service doit également permettre de supprimer des objets du panier virtuel.
+Ajouter au **ProductComponent** un bouton permettant d'ajouter le produit au panier. 
 
 # TP n°2
-Faire la même chose avec un fichier nommé **default-category.json** qui contient la catégorie par défaut. 
+Créer un composant nommé **CartComponent**, lui associer la route "/cart". 
+Ce composant doit afficher l'ensemble des produits situées dans le panier. 
 
-CTRL + SHIFT + L -> raccourci magique <3
+# TP n°3
+Ajouter à l'interface de **CartComponent**, un bouton par produit permettant 
+de supprimer ledit produit du panier. 
+
+# TP n°4
+Afficher en bas du panier le total HT (somme de tous les prix) du panier. 
+Afficher le total TTC (total HT + 20%);

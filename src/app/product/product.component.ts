@@ -8,12 +8,21 @@ import { Product } from '../product';
 })
 export class ProductComponent implements OnInit {
 
+
+  @Input()
+  public thumb:boolean = true;
+
   @Input()
   public data:Product|null = null;
+
+  public detailUrl:string = "";
 
   constructor() { }
 
   ngOnInit(): void {
+    if( this.data !== null ){
+      this.detailUrl = '/detail/' + this.data.id;
+    }
   }
 
 }
