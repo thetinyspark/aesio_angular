@@ -7,6 +7,7 @@ import { ProductComponent } from './product/product.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { ProductTypePipe } from './product-type.pipe';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     ProductTypePipe
   ],
   imports: [
+    HttpClientModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule

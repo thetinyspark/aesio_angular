@@ -1,5 +1,8 @@
 
 
-# TP n°3
-Faire en sorte que le product.type.ts utilise aussi une constante, nouvellement créée, 
-que l'on nommera CATEGORY_ALL (qui vaut "all") et qui est utilisée comme catégorie par défaut au sein de notre catalog.component.ts. 
+# TP n°1
+Créer un fichier nommé "categories.json" listant les différentes catégories de produits. 
+Créer une méthode getCategories sur le service ProductService et faire en sorte de retourner un Observable<string[]>. Ce tableau de chaînes de caractères doit contenir les donénes du fichier "categories.json".
+
+# TP n°2
+Faire la même chose avec un fichier nommé default-category.json qui contient la catégorie par défaut. 
