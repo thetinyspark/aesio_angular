@@ -1,0 +1,4 @@
+<input [(ngModel)]="currentCategory">
+<app-product    *ngFor="let current of products|productType:currentCategory" 
+                [data]="current">
+</app-product>
