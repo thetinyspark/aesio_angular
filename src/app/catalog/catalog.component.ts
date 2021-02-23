@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CATALOG_MOCK, Product } from '../product';
+import { CATALOG_MOCK, CATEGORIES_MOCK, CATEGORY_ALL, DEFAULT_CATEGORY, Product } from '../product';
 
 @Component({
   selector: 'app-catalog',
@@ -8,8 +8,9 @@ import { CATALOG_MOCK, Product } from '../product';
 })
 export class CatalogComponent implements OnInit {
 
-  public currentCategory:string = "tech";
+  public currentCategory:string = DEFAULT_CATEGORY;
   public products:Product[] = CATALOG_MOCK;
+  public categories:string[] = CATEGORIES_MOCK;
 
   constructor() { }
 

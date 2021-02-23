@@ -81,3 +81,16 @@ export const CATALOG_MOCK:Product[] = [
         price: 30
     }
 ];
+
+export const CATEGORIES_MOCK:string[] = [
+    "all",
+    "tech",
+    "old tech",
+    "food",
+    "phone",
+    "meuble",
+    "book"
+];
+
+export const CATEGORY_ALL:string = CATEGORIES_MOCK[0];
+export const DEFAULT_CATEGORY:string = CATEGORIES_MOCK[1];
