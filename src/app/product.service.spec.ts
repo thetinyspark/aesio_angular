@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
+import { beforeEachTest } from 'src/config.spec';
 import { CATALOG_MOCK, CATEGORIES_MOCK, DEFAULT_CATEGORY, Product } from './product';
 
 import { ProductService } from './product.service';
@@ -8,20 +9,9 @@ import { ProductService } from './product.service';
 describe('ProductService', () => {
   let service: ProductService;
 
-  beforeEach(
+  beforeEach(beforeEachTest);
 
-    () => {
-      TestBed.configureTestingModule(
-        {
-          imports: [HttpClientModule]
-        }
-      );
-      service = TestBed.inject(ProductService);
-      spyOn(service, "getAll").and.returnValue( of(CATALOG_MOCK ));
-      spyOn(service, "getCategories").and.returnValue( of(CATEGORIES_MOCK));
-      spyOn(service, "getDefaultCategory").and.returnValue( of(DEFAULT_CATEGORY));
-    }
-  );
+  beforeEach( () => service = TestBed.inject(ProductService) )
 
 
   fit ( 

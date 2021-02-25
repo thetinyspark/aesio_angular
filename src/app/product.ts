@@ -93,4 +93,4 @@ export const CATEGORIES_MOCK:string[] = [
 ];
 
 export const CATEGORY_ALL:string = CATEGORIES_MOCK[0];
-export const DEFAULT_CATEGORY:string = CATEGORIES_MOCK[1];
+export const DEFAULT_CATEGORY:string = CATEGORIES_MOCK[0];
