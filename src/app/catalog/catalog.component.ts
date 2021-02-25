@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart.service';
 import { CATALOG_MOCK, CATEGORIES_MOCK, CATEGORY_ALL, DEFAULT_CATEGORY, Product } from '../product';
 import { ProductService } from '../product.service';
 
@@ -15,7 +16,7 @@ export class CatalogComponent implements OnInit {
 
   private service:ProductService;
 
-  constructor( param_service:ProductService ) { 
+  constructor( param_service:ProductService, private cartService:CartService ) { 
     this.service = param_service;
   }
 
@@ -29,6 +30,10 @@ export class CatalogComponent implements OnInit {
       }
     );
 
+  }
+
+  public addToCart(product:Product):void{
+    this.cartService.add(product);
   }
 
 }

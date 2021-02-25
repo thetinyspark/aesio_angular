@@ -2,5 +2,5 @@
     <option *ngFor="let c of categories" value={{c}}>{{c}}</option>
 </select>
 <app-product    *ngFor="let current of products|productType:currentCategory" 
-                [data]="current" [thumb]="true">
+                [data]="current" [thumb]="true" (onProductClick)="addToCart($event)">
 </app-product>
