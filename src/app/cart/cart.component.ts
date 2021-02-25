@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +9,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  public cart:Product[] = [];
+  public totalHT:number = 0;
+  public totalTTC:number = 0;
+
+  constructor(private service:CartService) { }
 
   ngOnInit(): void {
+    this.refresh();
+  }
+
+  refresh(){
+    this.service.getEverything().subscribe( 
+      (data) => {
+        this.cart = data.cart;
+        this.totalHT = data.ht;
+        this.totalTTC = data.ttc;
+      }
+    );
+  }
+
+  onRemove(product:Product):void{
+    this.service.remove(product).subscribe( 
+      (ok:boolean) => {
+        if( ok ){
+          alert("remove " + product.name + " from cart !");
+        }
+        this.refresh();
+      }
+    )
   }
 
 }

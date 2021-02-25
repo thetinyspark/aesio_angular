@@ -1,1 +1,21 @@
-<p>cart works!</p>
+<table>
+    <tr *ngFor="let current of cart">
+        <td>{{current.id}}</td>
+        <td>{{current.name}}</td>
+        <td>{{current.price}}</td>
+        <td>{{current.category}}</td>
+        <td>
+            <button (click)="onRemove(current)">X</button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3"></td>
+        <td>Total HT</td>
+        <td>{{totalHT}}</td>
+    </tr>    
+    <tr>
+        <td colspan="3"></td>
+        <td>Total TTC</td>
+        <td>{{totalTTC}}</td>
+    </tr>
+</table>

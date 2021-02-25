@@ -10,30 +10,33 @@ import { ProductService } from '../product.service';
 })
 export class CatalogComponent implements OnInit {
 
-  public currentCategory:string = "";
-  public products:Product[] = [];
-  public categories:string[] = [];
+  public currentCategory: string = "";
+  public products: Product[] = [];
+  public categories: string[] = [];
 
-  private service:ProductService;
 
-  constructor( param_service:ProductService, private cartService:CartService ) { 
-    this.service = param_service;
-  }
+  constructor(private service: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
 
     this.service.getEverything().subscribe(
       (data) => {
-        this.categories       = data.categories; 
-        this.currentCategory  = data.defaultCategory;
-        this.products         = data.products;
+        this.categories = data.categories;
+        this.currentCategory = data.defaultCategory;
+        this.products = data.products;
       }
     );
 
   }
 
-  public addToCart(product:Product):void{
-    this.cartService.add(product);
+  public addToCart(product: Product): void {
+    this.cartService.add(product).subscribe(
+      (ok: boolean) => {
+        if (ok) {
+          alert("add " + product.name + " to cart !");
+        }
+      }
+    );
   }
 
 }
